@@ -62,3 +62,16 @@ def tool(request):
         return render(request, 'tools/csv_to_json.html', {'csv': data, 'json': json_data})
     else:
         return render(request, 'tools/csv_to_json.html')
+
+
+def convert_into_html(data):
+    return data
+
+
+def csv_html(request):
+    if request.method == 'POST':
+        data = request.POST['csv_data']
+        html_data = convert_into_html(data)
+        return render(request, 'tools/csv_to_html.html', {'csv': data, 'html_data': html_data})
+    else:
+        return render(request, 'tools/csv_to_html.html')
