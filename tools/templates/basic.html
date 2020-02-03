@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %} {% endblock title %} </title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    </head>
+
+    <body>
+        <div id="header">
+            <div class="container">
+                <div class="logo">
+                    <a href="#">Tools</a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="{% url 'csv_to_json' %}">CSV to JSON</a></li>
+                        <li><a href="request.html">Request a Tool</a></li>
+                        <li><a href="contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--end of header-->
+        <div class="container main-block">
+            <div class="main">
+                {% block content %}
+                {% endblock content %}
+            </div>
+            <div class="sidebar">
+                {% include 'tools/sidebar.html' %}
+            </div>
+        </div>
+        <div id="footer">
+            <div class="container">
+                <p>All rights reserved to <a href="https://cbsetoday.com" target="_blank">CBSE Today</a></p>
+            </div>
+        </div>
+    </body>
+<script>
+    function saveTextAsFile(textToWrite, fileNameToSaveAs) {
+        var textFileAsBlob = new Blob([textToWrite], { type: 'text/plain' });
+        var downloadLink = document.createElement("a");
+        downloadLink.download = fileNameToSaveAs;
+        downloadLink.innerHTML = "Download File";
+        if (window.webkitURL != null) {
+            // Chrome allows the link to be clicked
+            // without actually adding it to the DOM.
+            downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+        }
+        else {
+            // Firefox requires the link to be added to the DOM
+            // before it can be clicked.
+            downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+            downloadLink.onclick = destroyClickedElement;
+            downloadLink.style.display = "none";
+            document.body.appendChild(downloadLink);
+        }
+
+        downloadLink.click();
+    }
+</script>
+</html>
