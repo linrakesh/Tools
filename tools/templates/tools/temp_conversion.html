@@ -1,0 +1,16 @@
+{% extends 'basic.html' %}
+
+{% block title %} Temparature converter using Python {% endblock %}
+
+{% block content %}
+<h1>Temparature converter using Python</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="cel">Temparature in Celcius</label><br />
+    <!-- <input type="file" name="myFile" onchange="this.form.submit();"> -->
+    <input type="text" name="cel" id="cel" placeholder="Enter temparature in celcius" value="{{cel}}"> <br />
+    <button>Convert into Fahrenheight </button><br />
+    <label for="json_data">Temparature in Fahrenheight </label>
+    <input type="text" name="fah" id="fah" value="{{fah}}">
+</form>
+{% endblock content %}

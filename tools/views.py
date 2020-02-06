@@ -63,6 +63,9 @@ def tool(request):
     else:
         return render(request, 'tools/csv_to_json.html')
 
+# function that convert csv data into html table and return to
+# its calling function
+
 
 def convert_into_html(data):
     return data
@@ -75,3 +78,27 @@ def csv_html(request):
         return render(request, 'tools/csv_to_html.html', {'csv': data, 'html_data': html_data})
     else:
         return render(request, 'tools/csv_to_html.html')
+
+
+def temp_converter(request):
+    if request.method == 'POST':
+        cel = int(request.POST['cel'])
+        fah = (cel+32)*9/5
+        return render(request, "tools/temp_conversion.html", {'cel': cel, 'fah': fah})
+    else:
+        return render(request, "tools/temp_conversion.html")
+
+
+def tool_request(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
+        print(name, email, message)
+        return render(request, "tools/temp_conversion.html")
+    else:
+        return render(request, "tools/request.html")
+
+
+def contact_us(request):
+    return render(request, "tools/contact.html")

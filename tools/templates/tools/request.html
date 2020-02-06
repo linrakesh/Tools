@@ -1,0 +1,17 @@
+{% extends 'basic.html' %}
+
+{% block title %} Request a Tool {% endblock %}
+
+{% block content %}
+<h1>Not able to Find your Tool? Send Your request</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="Name">Name</label><br />
+    <input type="text" name="cel" id="cel" placeholder="Enter temparature in celcius"> <br />
+    <label for="email">Email </label>
+    <input type="email" name="email" id="email" placeholder="Enter a valid email ID">
+    <label for="message">Your Idea about the Tool</label>
+    <textarea name="message" id="" cols="30" rows="10">Put your idea about the tool</textarea>
+    <button type="submit" value="submit">Submit Your Tool Request</button>
+</form>
+{% endblock content %}
