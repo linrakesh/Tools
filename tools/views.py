@@ -68,8 +68,24 @@ def tool(request):
 # its calling function
 
 
-def convert_into_html(data):
-    return data
+def convert_into_html(csv_file):
+    li = csv_file.split('\r\n')
+    n = len(li)
+    count = 1
+    html = "<table>"
+    for row in li:
+        html += "<tr>"
+        if count == 1:
+            for y in row.split(','):
+                html += "<th>"+y+"</th>"
+        else:
+            for y in row.split(','):
+                html += "<td>"+y+"</td>"
+        html += "</tr>"
+        count += 1
+
+    html += "</table>"
+    return html
 
 
 def csv_html(request):
@@ -79,6 +95,39 @@ def csv_html(request):
         return render(request, 'tools/csv_to_html.html', {'csv': data, 'html_data': html_data})
     else:
         return render(request, 'tools/csv_to_html.html')
+
+# python view to convert CSV data into XML data
+
+
+def convert_into_xml(csv_file):
+
+    xml = '<?xml version= "1.0" encoding="UTF-8" ?><rows>'
+    keys = []
+    li = csv_file.split('\r\n')
+    n = len(li)
+    count = 1
+    for row in li:
+        if count == 1:
+            for y in row.split(','):
+                keys.append(y)
+        else:
+            xml += "<row>"
+            for y in range(len(row.split(','))):
+                xml += "<"+keys[y]+">"+row[y]+"</"+keys[y]+">"
+            xml += "</row>"
+        count += 1
+
+    xml += "</rows>"
+    return xml
+
+
+def csv_xml(request):
+    if request.method == 'POST':
+        data = request.POST['csv_data']
+        xml_data = convert_into_xml(data)
+        return render(request, 'tools/csv_to_xml.html', {'csv': data, 'xml_data': xml_data})
+    else:
+        return render(request, 'tools/csv_to_xml.html')
 
 
 def temp_converter(request):
@@ -95,6 +144,7 @@ def tool_request(request):
         name = request.POST['name']
         email = request.POST['email']
         message = request.POST['message']
+        print(name, email, message)
         return render(request, "tools/thanks.html")
     else:
         return render(request, "tools/request.html")

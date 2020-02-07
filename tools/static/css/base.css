@@ -13,7 +13,7 @@ body{margin: 0;padding: 0;font-size:18px;line-height: 28px;background:#d0d0d0;bo
 .menu ul li{position:relative;display:inline-block;}
 .menu ul li a{padding: 10px;text-decoration: none;}
 
-.menu ul ul{position:absolute;top:80px;background:red;display:none;}
+.menu ul ul{position:absolute;top:60px;background:red;display:none;}
 .menu ul li:hover > ul{display:block;z-index: 100;}
 
 

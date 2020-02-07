@@ -1,0 +1,17 @@
+{% extends 'basic.html' %}
+
+{% block title %} CSV to XML converter using Python {% endblock %}
+
+{% block content %}
+<h1>CSV to XML converter using Python</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="csv_data">Paste Your CSV Data here</label><br />
+    <!-- <input type="file" name="myFile" onchange="this.form.submit();"> -->
+    <textarea name="csv_data" id="csv_data" cols="80" rows="10">{{csv}}</textarea>
+    <button>Convert into XML</button><br />
+    <label for="xml_data">Your XML Data</label>
+    <textarea name="json_data" id="json_data" cols="80" rows="15">{{xml_data}}</textarea>
+</form>
+<button onclick=saveTextAsFile(json_data.value,'converted_xml.xml')>Download</button>
+{% endblock content %}
