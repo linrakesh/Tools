@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -94,11 +95,20 @@ def tool_request(request):
         name = request.POST['name']
         email = request.POST['email']
         message = request.POST['message']
-        print(name, email, message)
-        return render(request, "tools/temp_conversion.html")
+        return render(request, "tools/thanks.html")
     else:
         return render(request, "tools/request.html")
 
 
 def contact_us(request):
-    return render(request, "tools/contact.html")
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        msg = request.POST['message']
+
+        subject = "Contact us Email From Django App -" + name
+        send_mail(subject, msg, email, [
+                  'rakesh@binarynote.com'], fail_silently=False)
+        return render(request, "tools/thanks.html")
+    else:
+        return render(request, "tools/contact.html")

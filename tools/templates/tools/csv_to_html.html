@@ -10,8 +10,8 @@
     <!-- <input type="file" name="myFile" onchange="this.form.submit();"> -->
     <textarea name="csv_data" id="csv_data" cols="80" rows="10">{{csv}}</textarea>
     <button>Convert into JSON</button><br />
-    <label for="html_data">Your JSON Data</label>
-    <textarea name="json_data" id="json_data" cols="80" rows="15">{{html}}</textarea>
+    <label for="html_data">Your HTML Data Table</label>
+    <textarea name="json_data" id="json_data" cols="80" rows="15">{{html_data}}</textarea>
 </form>
 <button onclick=saveTextAsFile(json_data.value,'converted_html.html')>Download</button>
 {% endblock content %}
