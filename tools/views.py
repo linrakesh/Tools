@@ -1,3 +1,4 @@
+from django import forms
 from django.shortcuts import render
 from django.core.mail import send_mail
 
@@ -133,9 +134,11 @@ def csv_xml(request):
 def resize_images(request):
     if request.method == 'POST':
        files = request.FILES.getlist('images')
+       #print(files)
        for f in files:
-           print(f)
-       return render(request, "tools/resize_files.html")
+            if f.size>5*1024*1024:
+               raise forms.ValidationError("File is too big.")
+       return render(request, "tools/resize_files.html",{'files':files})
     else:
         return render(request, "tools/resize_files.html")
 

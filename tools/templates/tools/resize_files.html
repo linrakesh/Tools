@@ -4,11 +4,15 @@
 
 {% block content %}
 <h1>Resize Images using Python</h1>
+<p>Upload your images using the file uploader window and click on upload files button. After uploading it will show you all the images.</p>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <label for="images">Upload Image Files</label>
     <!-- <input type="file" name="myFile" onchange="this.form.submit();"> -->
-    <input type="file" name="images" id="images" placeholder="Enter temparature in celcius" multiple> <br />
+    <input type="file" name="images" id="images" multiple> <br />
     <input type="submit" value="Upload Files">
 </form>
+{% for file in files %}
+    <a href="{{file.name}}">{{file.name}}-{{file.size}}</a>
+{% endfor %}
 {% endblock content %}
