@@ -1,0 +1,14 @@
+{% extends 'basic.html' %}
+
+{% block title %} Resize Image Sizes using Python {% endblock %}
+
+{% block content %}
+<h1>Resize Images using Python</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="images">Upload Image Files</label>
+    <!-- <input type="file" name="myFile" onchange="this.form.submit();"> -->
+    <input type="file" name="images" id="images" placeholder="Enter temparature in celcius" multiple> <br />
+    <input type="submit" value="Upload Files">
+</form>
+{% endblock content %}

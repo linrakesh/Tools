@@ -130,11 +130,24 @@ def csv_xml(request):
         return render(request, 'tools/csv_to_xml.html')
 
 
+def resize_images(request):
+    if request.method == 'POST':
+       files = request.FILES.getlist('images')
+       for f in files:
+           print(f)
+       return render(request, "tools/resize_files.html")
+    else:
+        return render(request, "tools/resize_files.html")
+
+
 def temp_converter(request):
     if request.method == 'POST':
-        cel = int(request.POST['cel'])
-        fah = (cel+32)*9/5
-        return render(request, "tools/temp_conversion.html", {'cel': cel, 'fah': fah})
+        cel = request.POST['cel']
+        if(type(cel)==int or type(cel)==float):
+            fah = (cel+32)*9/5
+            return render(request, "tools/temp_conversion.html", {'cel': cel, 'fah': fah})
+        else:
+            return render(request, "tools/temp_conversion.html", {'cel': cel, 'fah': 'invalid Data type'})
     else:
         return render(request, "tools/temp_conversion.html")
 
