@@ -131,6 +131,12 @@ def csv_xml(request):
         return render(request, 'tools/csv_to_xml.html')
 
 
+def handle_uploaded_file(f):
+    destination = open('c:/%s' % f.name, 'wb+')
+    for chunk in f.chunks():
+        destination.write(chunk)
+    destination.close()
+
 def resize_images(request):
     if request.method == 'POST':
        files = request.FILES.getlist('images')
@@ -138,6 +144,7 @@ def resize_images(request):
        for f in files:
             if f.size>5*1024*1024:
                raise forms.ValidationError("File is too big.")
+            
        return render(request, "tools/resize_files.html",{'files':files})
     else:
         return render(request, "tools/resize_files.html")

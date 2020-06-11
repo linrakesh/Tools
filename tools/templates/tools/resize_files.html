@@ -12,7 +12,7 @@
     <input type="file" name="images" id="images" multiple> <br />
     <input type="submit" value="Upload Files">
 </form>
-{% for file in files %}
-    <a href="{{file.name}}">{{file.name}}-{{file.size}}</a>
+{% for photo in files %}
+    {{photo}}
 {% endfor %}
 {% endblock content %}
