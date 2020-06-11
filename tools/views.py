@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 # Create your views here.
 import csv
 import json
+import whois
 
 
 def csv_to_json(csv_data):
@@ -133,20 +134,29 @@ def csv_xml(request):
 
 def resize_images(request):
     if request.method == 'POST':
-       files = request.FILES.getlist('images')
-       #print(files)
-       for f in files:
-            if f.size>5*1024*1024:
-               raise forms.ValidationError("File is too big.")
-       return render(request, "tools/resize_files.html",{'files':files})
+        files = request.FILES.getlist('images')
+        # print(files)
+        for f in files:
+            if f.size > 5*1024*1024:
+                raise forms.ValidationError("File is too big.")
+        return render(request, "tools/resize_files.html", {'files': files})
     else:
         return render(request, "tools/resize_files.html")
+
+
+def whois_data(request):
+    if request.method == 'POST':
+        domain_name = request.POST['name']
+        domain = whois.whois(domain_name)
+        return render(request, 'tools/whois.html', {'domain': domain})
+    else:
+        return render(request, 'tools/whois.html')
 
 
 def temp_converter(request):
     if request.method == 'POST':
         cel = request.POST['cel']
-        if(type(cel)==int or type(cel)==float):
+        if(type(cel) == int or type(cel) == float):
             fah = (cel+32)*9/5
             return render(request, "tools/temp_conversion.html", {'cel': cel, 'fah': fah})
         else:

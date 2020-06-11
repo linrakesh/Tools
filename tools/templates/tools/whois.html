@@ -1,0 +1,16 @@
+{% extends 'basic.html' %}
+
+{% block title %} Whois Tool- Check Whois Database {% endblock %}
+
+{% block content %}
+<h1>Whois Checker Tool</h1>
+<p>Display the whois information of any domain name </p>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="name">Enter Domain Name : </label>
+    <!-- <input type="file" name="myFile" onchange="this.form.submit();"> -->
+    <input type="text" name="name" id="name" placeholder="Enter your domain name"> <br />
+    <input type="submit" value="Check Whois Database">
+</form>
+{{domain}}
+{% endblock content %}
