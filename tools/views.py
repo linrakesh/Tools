@@ -9,6 +9,10 @@ import json
 import whois
 
 
+def home(request):
+    return render(request,'tools/home.html')
+
+
 def csv_to_json(csv_data):
 
     count = 1
@@ -132,14 +136,30 @@ def csv_xml(request):
         return render(request, 'tools/csv_to_xml.html')
 
 
+def handle_uploaded_file(f):
+    destination = open('c:/%s' % f.name, 'wb+')
+    for chunk in f.chunks():
+        destination.write(chunk)
+    destination.close()
+
 def resize_images(request):
     if request.method == 'POST':
+<<<<<<< HEAD
         files = request.FILES.getlist('images')
         # print(files)
         for f in files:
             if f.size > 5*1024*1024:
                 raise forms.ValidationError("File is too big.")
         return render(request, "tools/resize_files.html", {'files': files})
+=======
+       files = request.FILES.getlist('images')
+       #print(files)
+       for f in files:
+            if f.size>5*1024*1024:
+               raise forms.ValidationError("File is too big.")
+            
+       return render(request, "tools/resize_files.html",{'files':files})
+>>>>>>> 629ddbb8d30db3be76169cdc16121c7a118c89ae
     else:
         return render(request, "tools/resize_files.html")
 

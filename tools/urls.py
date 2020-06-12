@@ -1,9 +1,14 @@
 from django.urls import path
+<<<<<<< HEAD
 from .views import (tool, csv_html, csv_xml, temp_converter, tool_request,
                     contact_us, resize_images, whois_data)
+=======
+from .views import home, tool, csv_html, csv_xml, temp_converter, tool_request, contact_us,resize_images
+>>>>>>> 629ddbb8d30db3be76169cdc16121c7a118c89ae
 
 urlpatterns = [
-    path('', tool, name="csv_to_json"),
+    path('', home, name="home"),
+    path('csv2json', tool, name="csv_to_json"),
     path('csv2html/', csv_html, name="csv_to_html"),
     path('csv2xml/', csv_xml, name="csv_to_xml"),
     path('resize_images/', resize_images, name="resize_images"),
