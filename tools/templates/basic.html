@@ -14,11 +14,11 @@
         <div id="header">
             <div class="container">
                 <div class="logo">
-                    <a href="#">Tools</a>
+                    <a href="{% url 'home' %}">Tools</a>
                 </div>
                 <div class="menu">
                     <ul>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{% url 'home' %}">Home</a></li>
                         <li><a href="#">CSV Converter</a>
                             <ul>
                                 <li><a href="{% url 'csv_to_json' %}">CSV to JSON</a></li>
@@ -27,6 +27,7 @@
                             </ul>
                         </li>
                         <li><a href="{% url 'temp_convert' %}">Temp Converter</a></li>
+                        <li><a href="{% url 'domain_age' %}">Domain Age Checker</a></li>
                         <li><a href="{% url 'resize_images' %}">Image Resize</a></li>
                         <li><a href="{% url 'tool_request' %}">Request a Tool</a></li>
                         <li><a href="{% url 'contact_us' %}">Contact us</a></li>

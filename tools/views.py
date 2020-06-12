@@ -8,6 +8,10 @@ import csv
 import json
 
 
+def home(request):
+    return render(request,'tools/home.html')
+
+
 def csv_to_json(csv_data):
 
     count = 1
