@@ -1,10 +1,5 @@
 from django.urls import path
-<<<<<<< HEAD
-from .views import (tool, csv_html, csv_xml, temp_converter, tool_request,
-                    contact_us, resize_images, whois_data)
-=======
-from .views import home, tool, csv_html, csv_xml, temp_converter, tool_request, contact_us,resize_images
->>>>>>> 629ddbb8d30db3be76169cdc16121c7a118c89ae
+from .views import home, tool, csv_html, csv_xml, temp_converter, tool_request, contact_us, resize_images
 
 urlpatterns = [
     path('', home, name="home"),
@@ -15,5 +10,5 @@ urlpatterns = [
     path('temp/', temp_converter, name="temp_convert"),
     path('request/', tool_request, name="tool_request"),
     path('contact/', contact_us, name="contact_us"),
-    path('whois/', whois_data, name="whois"),
+
 ]
