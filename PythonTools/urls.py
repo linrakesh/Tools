@@ -22,6 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tools.urls')),
     path('', include('domaintools.urls')),
+    path('', include('passwordtools.urls')),
+    path('', include('binarytools.urls')),
 ]
 
 if settings.DEBUG:
