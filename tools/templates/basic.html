@@ -33,11 +33,31 @@
                                     <li><a href="{% url 'binary_2_decimal' %}">Binary 2 Decimal</a></li>
                                 </ul>
                         </li>
-                        <li><a href="{% url 'temp_convert' %}">Temp Converter</a></li>
-                        <li><a href="{% url 'password_generator' %}">Password Generator</a></li>
-                        <li><a href="{% url 'domain_age' %}">Domain Age Checker</a></li>
-                        <li><a href="{% url 'whois' %}">Whois Checker</a></li>
-                        <li><a href="{% url 'resize_images' %}">Image Resize</a></li>
+                        <li><a href="#">Password Tools</a>
+                            <ul>
+                                <li><a href="{% url 'password_generator' %}">Password Generator</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li><a href="#">Domain Tools</a>
+                            <ul>
+                                <li><a href="{% url 'domain_age' %}">Domain Age Checker</a></li>
+                                <li><a href="{% url 'whois' %}">Whois Checker</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Image Tools</a>
+                            <ul>
+                              
+                                <li><a href="{% url 'resize_images' %}">Image Resize</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Unit Tools</a>
+                            <ul>
+                                <li><a href="{% url 'temp_convert' %}">Temp Converter</a></li>
+                            </ul>
+                        </li>
+                        
+                        
                         <li><a href="{% url 'tool_request' %}">Request a Tool</a></li>
                         <li><a href="{% url 'contact_us' %}">Contact us</a></li>
                     </ul>
