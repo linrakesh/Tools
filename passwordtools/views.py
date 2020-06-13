@@ -7,9 +7,6 @@ import random
 def password_generator(request):
     if request.method == 'POST':
         length = int(request.POST['length'])
-        if length<=0: 
-            length=8
-              
         chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()_+}{"
         password = ""
         for i in range(length+1):
