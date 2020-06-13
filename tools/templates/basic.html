@@ -19,12 +19,19 @@
                 <div class="menu">
                     <ul>
                         <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="#">CSV Converter</a>
+                        <li><a href="#">CSV Tools</a>
                             <ul>
                                 <li><a href="{% url 'csv_to_json' %}">CSV to JSON</a></li>
                                 <li><a href="{% url 'csv_to_html' %}">CSV to HTML</a></li>
                                 <li><a href="{% url 'csv_to_xml' %}">CSV to XML</a></li>
                             </ul>
+                        </li>
+                        <li><a href="#">Binary Tools</a>
+                                <ul>
+                                    <li><a href="{% url 'decimal_2_binary' %}">Decimal 2 Binary</a></li>
+                                    <li><a href="{% url 'string_2_binary' %}">String 2 Binary</a></li>
+                                    <li><a href="{% url 'binary_2_decimal' %}">Binary 2 Decimal</a></li>
+                                </ul>
                         </li>
                         <li><a href="{% url 'temp_convert' %}">Temp Converter</a></li>
                         <li><a href="{% url 'password_generator' %}">Password Generator</a></li>
