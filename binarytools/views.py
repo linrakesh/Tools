@@ -63,3 +63,32 @@ def binary_to_decimal(request):
         return render(request, 'binarytools/binary_2_decimal.html', {'no': sum1, 'binary': n})
     else:
         return render(request, 'binarytools/binary_2_decimal.html')
+
+
+def decimal_to_octal(request):
+    if request.method == 'POST':
+        no = int(request.POST['decimal'])
+        octal = ''
+        while no != 0:
+            rem = no % 8
+            if rem == 0:
+                octal = octal+'0'
+            if rem == 1:
+                octal = octal+'1'
+            if rem == 2:
+                octal = octal+'2'
+            if rem == 3:
+                octal = octal+'3'
+            if rem == 4:
+                octal = octal+'4'
+            if rem == 5:
+                octal = octal+'5'
+            if rem == 6:
+                octal = octal+'6'
+            if rem == 7:
+                octal = octal+'7'
+            no = no // 8
+         
+        return render(request, 'binarytools/decimal_2_octal.html', {'no': octal[::-1], 'decimal':no })
+    else:
+        return render(request, 'binarytools/decimal_2_octal.html')
