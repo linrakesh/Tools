@@ -148,7 +148,7 @@ def binary_to_octal(request):
         octal = ''
         while no != 0:
             rem = no % 1000
-            if rem == 0000:
+            if rem == 0:
                 octal = octal+'0'
             if rem == 1:
                 octal = octal+'1'
@@ -167,4 +167,75 @@ def binary_to_octal(request):
             no = no // 1000
         return render(request, 'binarytools/binary_2_octal.html', {'no': octal[::-1], 'dec': original})
     else:
-        return render(request, 'binarytools/decimal_2_octal.html')
+        return render(request, 'binarytools/binary_2_octal.html')
+
+
+def binary_to_hexa(request):
+    if request.method == 'POST':
+        no = int(request.POST['binary'])
+        original = no
+        hexa = ''
+        while no != 0:
+            rem = no % 10000
+            if rem == 0:
+                hexa = hexa+'0'
+            if rem == 1:
+                hexa = hexa+'1'
+            if rem == 10:
+                hexa = hexa+'2'
+            if rem == 11:
+                hexa = hexa+'3'
+            if rem == 100:
+                hexa = hexa+'4'
+            if rem == 101:
+                hexa = hexa+'5'
+            if rem == 110:
+                hexa = hexa+'6'
+            if rem == 111:
+                hexa = hexa+'7'
+            if rem == 1000:
+                hexa = hexa+'8'
+            if rem == 1001:
+                hexa = hexa+'9'
+            if rem == 1010:
+                hexa = hexa+'A'
+            if rem == 1011:
+                hexa = hexa+'B'
+            if rem == 1100:
+                hexa = hexa+'C'
+            if rem == 1101:
+                hexa = hexa+'D'
+            if rem == 1110:
+                hexa = hexa+'E'
+            no = no // 10000
+        return render(request, 'binarytools/binary_2_hexa.html', {'no': hexa[::-1], 'dec': original})
+    else:
+        return render(request, 'binarytools/binary_2_hexa.html')
+
+
+def hexadecimal_to_decimal(request):
+    if request.method == 'POST':
+        no = request.POST['binary']
+        original = no
+        decimal = 0
+        step = 0
+        for x in no:
+            if x in ['0','1','2','3','4','5','6','7','8','9']:
+                rem = int(x)
+            if x=='A':
+                rem=10
+            elif x=='B':
+                rem=11
+            elif x=='C':
+                rem=12
+            elif x=='C':
+                rem=13
+            elif x=='D':
+                rem=14
+            elif x=='E':
+                rem = 15  
+            decimal = decimal + rem*16**step
+            step +=1
+        return render(request, 'binarytools/hexa_2_decimal.html', {'no': decimal, 'dec': original})
+    else:
+        return render(request, 'binarytools/hexa_2_decimal.html')
