@@ -1,0 +1,14 @@
+{% extends 'basic.html' %}
+
+{% block title %} Hexadecimal Number into Decimal Number converter Tool {% endblock %}
+
+{% block content %}
+<h1>Hexadecimal Number into Decimal Number converter</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="binary">Hexadecimal Number </label>
+    <input type="text" name="binary" id="binary" value="{{dec}}">
+    <input type="submit" value="Convert into Decimal Number">
+</form>
+<p>Your Decimal Number is :{{no}} </p>
+{% endblock content %}
