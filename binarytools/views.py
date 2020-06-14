@@ -68,6 +68,7 @@ def binary_to_decimal(request):
 def decimal_to_octal(request):
     if request.method == 'POST':
         no = int(request.POST['decimal'])
+        original=no
         octal = ''
         while no != 0:
             rem = no % 8
@@ -89,6 +90,52 @@ def decimal_to_octal(request):
                 octal = octal+'7'
             no = no // 8
          
-        return render(request, 'binarytools/decimal_2_octal.html', {'no': octal[::-1], 'decimal':no })
+        return render(request, 'binarytools/decimal_2_octal.html', {'no': octal[::-1], 'dec':original })
     else:
         return render(request, 'binarytools/decimal_2_octal.html')
+
+
+def decimal_to_hexa(request):
+    if request.method == 'POST':
+        no = int(request.POST['decimal'])
+        original = no
+        hexa = ''
+        while no != 0:
+            rem = no % 16
+            if rem == 0:
+                hexa = hexa+'0'
+            if rem == 1:
+                hexa = hexa+'1'
+            if rem == 2:
+                hexa = hexa+'2'
+            if rem == 3:
+                hexa = hexa+'3'
+            if rem == 4:
+                hexa = hexa+'4'
+            if rem == 5:
+                hexa = hexa+'5'
+            if rem == 6:
+                hexa = hexa+'6'
+            if rem == 7:
+                hexa = hexa+'7'
+            if rem == 8:
+                hexa = hexa+'8'
+            if rem == 9:
+                hexa = hexa+'9'
+            if rem == 10:
+                hexa = hexa+'A'
+            if rem == 11:
+                hexa = hexa+'B'
+            if rem == 12:
+                hexa = hexa+'B'
+            if rem == 13:
+                hexa = hexa+'C'
+            if rem == 14:
+                hexa = hexa+'D'
+            if rem == 15:
+                hexa = hexa+'E'
+            no = no // 16
+
+        return render(request, 'binarytools/decimal_2_hexa.html', {'no': hexa[::-1], 'dec': original})
+    else:
+        return render(request, 'binarytools/decimal_2_hexa.html')
