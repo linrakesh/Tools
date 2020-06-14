@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 # Create your views here.
 
-
 def int_binary(no):
     binary = ''
     while no != 0:
@@ -239,3 +238,19 @@ def hexadecimal_to_decimal(request):
         return render(request, 'binarytools/hexa_2_decimal.html', {'no': decimal, 'dec': original})
     else:
         return render(request, 'binarytools/hexa_2_decimal.html')
+
+
+def octal_to_decimal(request):
+    if request.method == 'POST':
+        no = int(request.POST['binary'])
+        original = no
+        decimal = 0
+        step = 0
+        while no != 0:
+            rem = no % 10
+            decimal = decimal + rem*8**step
+            step += 1
+            no = no//10
+        return render(request, 'binarytools/octal_2_decimal.html', {'no': decimal, 'dec': original})
+    else:
+        return render(request, 'binarytools/octal_2_decimal.html')
