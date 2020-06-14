@@ -139,3 +139,32 @@ def decimal_to_hexa(request):
         return render(request, 'binarytools/decimal_2_hexa.html', {'no': hexa[::-1], 'dec': original})
     else:
         return render(request, 'binarytools/decimal_2_hexa.html')
+
+
+def binary_to_octal(request):
+    if request.method == 'POST':
+        no = int(request.POST['binary'])
+        original= no
+        octal = ''
+        while no != 0:
+            rem = no % 1000
+            if rem == 0000:
+                octal = octal+'0'
+            if rem == 1:
+                octal = octal+'1'
+            if rem == 10:
+                octal = octal+'2'
+            if rem == 11:
+                octal = octal+'3'
+            if rem == 100:
+                octal = octal+'4'
+            if rem == 101:
+                octal = octal+'5'
+            if rem == 110:
+                octal = octal+'6'
+            if rem == 111:
+                octal = octal+'7'
+            no = no // 1000
+        return render(request, 'binarytools/binary_2_octal.html', {'no': octal[::-1], 'dec': original})
+    else:
+        return render(request, 'binarytools/decimal_2_octal.html')
