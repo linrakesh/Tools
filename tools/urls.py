@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import home, tool, csv_html, csv_xml, temp_converter, tool_request, contact_us, resize_images
+from .views import (home, tool, csv_html, csv_xml, temp_converter, tool_request,
+                    contact_us, resize_images, qr_code_generator)
 
 urlpatterns = [
     path('', home, name="home"),
@@ -10,5 +11,5 @@ urlpatterns = [
     path('temp/', temp_converter, name="temp_convert"),
     path('request/', tool_request, name="tool_request"),
     path('contact/', contact_us, name="contact_us"),
-
+    path('qrcode/', qr_code_generator, name="qrcode"),
 ]
