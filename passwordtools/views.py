@@ -3,7 +3,6 @@ from django.shortcuts import render
 # Create your views here.
 import random
 
-
 def password_generator(request):
     if request.method == 'POST':
         length = int(request.POST['length'])
