@@ -1,33 +1,44 @@
-body{margin: 0;padding: 0;font-size:18px;line-height: 28px;background:#d0d0d0;box-sizing:border-box;}
+body{margin: 0;padding: 0;font-size:18px;line-height: 28px;background:url('../image/background.svg') #e3e3e3;background-size:cover;box-sizing:border-box;}
 
 
 #header{background:#444;}
-#header a{color:#fff;line-height: 60px;}
+#header a{color:#fff;}
 .container{width:100%;max-width: 1300px;margin:0 auto;display:flex;justify-content: space-between;}
 
 .logo{flex-basis:20%;}
 .menu {flex-basis:80%;}
-.logo a{font-size:48px;text-decoration: none;}
-.menu ul{float:right;}
+.logo a{font-size:48px;text-decoration: none;line-height:60px;}
+.menu ul{float:right;line-height:60px;}
 .menu ul{padding: 0;margin: 0;text-align:right;}
 .menu ul li{position:relative;display:inline-block;}
 .menu ul li a{padding:0 10px;text-decoration: none;}
 
 .menu ul ul li{width:220px;text-align:left;}
 
-.menu ul ul{position:absolute;top:60px;background:red;display:none;}
+.menu ul ul{position:absolute;top:60px;background:#888;display:none;}
 .menu ul li:hover > ul{display:block;z-index: 100;}
 
-.menu ul ul li a{display:block;padding:3px 10px;}
+
+.menu ul ul li{display:block;line-height:48px;}
+.menu ul ul li a{display:block;}
 .menu ul ul li a:hover{background:#444;color:#000;display:block;}
 
 
-.main-block{background:#fff;margin-top:10px;margin-bottom: 10px;}
-.main{flex-basis:68%;padding:10px 20px;}
+.main-block{margin-top:10px;margin-bottom: 10px;}
+.main{flex-basis:68%;padding:10px 20px;box-sizing: border-box;}
 .sidebar{flex-basis:30%;padding:10px 20px;background:#f0f0f0;}
+
 #footer{background:#444;}
 #footer a{color:#fff;text-decoration: none;}
 #footer p{margin:0 auto;padding:10px 0;}
+
+.tools{display:flex;justify-content:space-between;flex-wrap: wrap;}
+.heading{flex-basis:100%;text-align: center;}
+.box-3{flex-basis:32%;background:#e9e9e9;margin-bottom:10px;text-align:center;padding:10px;box-sizing: border-box;}
+.box-3 p{margin: 0;}
+
+.box-3:hover i{color:blue;cursor: pointer;}
+.box-3:hover{background:linear-gradient(45deg #e4e4e7,#fdb7b7);transition:all 0.3s ;}
 
 
 input{padding:10;width:100%;box-sizing: border-box;}
