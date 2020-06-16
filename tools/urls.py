@@ -11,5 +11,4 @@ urlpatterns = [
     path('temp/', temp_converter, name="temp_convert"),
     path('request/', tool_request, name="tool_request"),
     path('contact/', contact_us, name="contact_us"),
-    path('qrcode/', qr_code_generator, name="qrcode"),
 ]

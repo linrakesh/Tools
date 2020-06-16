@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('domaintools.urls')),
     path('', include('passwordtools.urls')),
     path('', include('binarytools.urls')),
+    path('', include('qrgraph.urls', namespace="qr_code")),
 ]
 
 if settings.DEBUG:
