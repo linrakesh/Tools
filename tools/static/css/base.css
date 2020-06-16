@@ -22,6 +22,7 @@ body{margin: 0;padding: 0;font-size:18px;line-height: 28px;background:url('../im
 
 .main-block{margin-top:10px;margin-bottom: 10px;}
 .main{flex-basis:68%;padding:10px 20px;box-sizing: border-box;}
+.main p{padding:10px 20px;background:#fff;border-radius:10px;}
 .sidebar{flex-basis:30%;padding:10px 20px;background:#f0f0f0;}
 
 #footer{background:#444;}
@@ -40,11 +41,11 @@ body{margin: 0;padding: 0;font-size:18px;line-height: 28px;background:url('../im
 label{display:block;width:100%;margin:0 auto;}
 input,textarea{padding:10;width:100%;box-sizing: border-box;font-style:bold;border-radius:10px;font-size:18px;font-style:bold;
         border:none;}
-
+textarea{background:#fff;padding:10px 20px;margin-top:10px;}
 input[type='text']{padding:10px 10px;width:100%;box-sizing: border-box;margin-bottom:20px;font-size:18px;font-style:bold;border-radius:10px;
         border:none;
 }
-input[type='submit']{background:red;color:white;border:none;padding:8px 10px;font-size:18px;font-style:bold;font-style:bold;}
+input[type='submit']{background:red;color:white;border:none;padding:8px 10px;font-size:18px;font-style:bold;font-style:bold;cursor:pointer;}
 
 textarea{font-size:16px;}
 button{padding:10px;background:red;color:#fff;}

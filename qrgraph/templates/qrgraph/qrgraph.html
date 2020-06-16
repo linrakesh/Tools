@@ -10,5 +10,9 @@
     <input type="text" name="name" id="name" placeholder="Enter data for QR Code" value="{{data}}"> <br />
     <input type="submit" value="submit">
 </form>
-<img src="{% qr_url_from_text data size=8 version=10 image_format='png' %}" alt="{{data}}" />
+<div class="center-image" style="margin:0 auto;">
+    {% qr_from_text data size="h" %}
+</div>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi eveniet, labore praesentium expedita cumque ipsam facilis odit autem et minima qui, deleniti tempora illo quia quae velit quam perferendis? Libero praesentium nisi molestiae nulla similique saepe quos dignissimos eius perferendis laborum voluptatum, impedit facere consectetur consequuntur dolores illo alias reprehenderit.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat aspernatur hic inventore eum quam nemo aliquam autem, libero at minus aliquid dolore qui doloremque quod animi ipsam maxime itaque dolorum quia quo adipisci? Temporibus enim rem a velit, facere officia sapiente odit possimus, eum dicta laboriosam labore exercitationem vitae eaque cum provident soluta ullam deserunt nisi! Blanditiis in quaerat accusamus qui, est id nihil optio possimus praesentium, error, quo beatae fuga atque. Mollitia, soluta blanditiis. Autem impedit, aperiam quam perferendis blanditiis est culpa accusamus. Ipsa incidunt molestiae ea distinctio repellat fuga repellendus iste aspernatur nihil? Temporibus nostrum incidunt praesentium aliquid?</p>
 {% endblock content %}
