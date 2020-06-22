@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>{% block title %} {% endblock title %} </title>
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
     </head>
 
     <body>
@@ -43,6 +43,7 @@
                         <li><a href="#">Password Tools</a>
                             <ul>
                                 <li><a href="{% url 'password_generator' %}">Password Generator</a></li>
+                                <li><a href="{% url 'password_strength' %}">Password Strength</a></li>
 
                             </ul>
                         </li>
@@ -86,32 +87,34 @@
                 <p>All rights reserved to <a href="https://cbsetoday.com" target="_blank">CBSE Today</a></p>
             </div>
         </div>
-   
-    <script>
-        function saveTextAsFile(textToWrite, fileNameToSaveAs) {
-            var textFileAsBlob = new Blob([textToWrite], { type: 'text/plain' });
-            var downloadLink = document.createElement("a");
-            downloadLink.download = fileNameToSaveAs;
-            downloadLink.innerHTML = "Download File";
-            if (window.webkitURL != null) {
-                // Chrome allows the link to be clicked
-                // without actually adding it to the DOM.
-                downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
-            }
-            else {
-                // Firefox requires the link to be added to the DOM
-                // before it can be clicked.
-                downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
-                downloadLink.onclick = destroyClickedElement;
-                downloadLink.style.display = "none";
-                document.body.appendChild(downloadLink);
-            }
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+            function saveTextAsFile(textToWrite, fileNameToSaveAs) {
+                var textFileAsBlob = new Blob([textToWrite], { type: 'text/plain' });
+                var downloadLink = document.createElement("a");
+                downloadLink.download = fileNameToSaveAs;
+                downloadLink.innerHTML = "Download File";
+                if (window.webkitURL != null) {
+                    // Chrome allows the link to be clicked
+                    // without actually adding it to the DOM.
+                    downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+                }
+                else {
+                    // Firefox requires the link to be added to the DOM
+                    // before it can be clicked.
+                    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+                    downloadLink.onclick = destroyClickedElement;
+                    downloadLink.style.display = "none";
+                    document.body.appendChild(downloadLink);
+                }
 
-            downloadLink.click();
-        }
-    </script>
-    <script>
-        function myFunction() {
+                downloadLink.click();
+            }
+        </script>
+        <script>
+            function myFunction() {
                 /* Get the text field */
                 var copyText = document.getElementById("password");
 
@@ -125,6 +128,20 @@
                 /* Alert the copied text */
                 alert("Copied the text: " + copyText.value);
             }
-    </script>
+
+            $('#progressbar').progressbar({
+                value: 0
+            });
+
+            $(function () {
+                $('#button').click(function () {
+                    $('#progressbar').progressbar({
+                        value: 45
+                    });
+                });
+            });
+        </script>
+        <script src="https://use.fontawesome.com/0cc80ef660.js"></script>
     </body>
+
 </html>
