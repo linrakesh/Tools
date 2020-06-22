@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'domaintools',
     'passwordtools',
     'binarytools',
+    'shortly',
+    'blog',
 
 ]
 
