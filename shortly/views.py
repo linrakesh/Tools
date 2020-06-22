@@ -3,6 +3,8 @@ from .models import shorturl
 import random
 import string
 
+
+def generate_short_url():
     while True:
         url = ''.join(random.choice(string.ascii_lowercase) for _ in range(6))
         check = shorturl.objects.filter(short_url = url)
@@ -24,7 +26,7 @@ def shorturl_home(request):
              
         newurl.save()
       
-    urls = shorturl.objects.all()
+    urls = shorturl.objects.all()[:10]
     return render(request, 'shortly/home.html', {'urls': urls})
    
 
