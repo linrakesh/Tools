@@ -46,7 +46,7 @@ label{display:block;width:100%;margin:0 auto;}
 input,textarea{padding:10;width:100%;box-sizing: border-box;font-style:bold;border-radius:10px;font-size:18px;font-style:bold;
         border:none;}
 textarea{padding:10px 20px;margin-top:10px;background:#fff;}
-input[type='text'],input[type="number"],input[type="email"]{padding:10px 10px;width:100%;box-sizing: border-box;margin-bottom:20px;font-size:18px;font-style:bold;border-radius:10px;
+input[type='text'],input[type="number"],input[type="email"],input[type="url"]{padding:10px 10px;width:100%;box-sizing: border-box;margin-bottom:20px;font-size:18px;font-style:bold;border-radius:10px;
         border:none;
 }
 input[type='submit']{background:red;border:none;padding:8px 10px;font-size:18px;font-style:bold;font-style:bold;cursor:pointer;}
