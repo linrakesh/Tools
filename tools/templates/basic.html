@@ -20,6 +20,7 @@
                 <div class="menu">
                     <ul>
                         <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="{% url 'short_home' %}">shortURL</a></li>
                         <li><a href="#">CSV Tools</a>
                             <ul>
                                 <li><a href="{% url 'csv_to_json' %}">CSV to JSON</a></li>
@@ -59,11 +60,11 @@
                                 <li><a href="{% url 'resize_images' %}">Image Resize</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Unit Tools</a>
+                        <!-- <li><a href="#">Unit Tools</a>
                             <ul>
                                 <li><a href="{% url 'temp_convert' %}">Temp Converter</a></li>
                             </ul>
-                        </li>
+                        </li> -->
 
 
                         <li><a href="{% url 'tool_request' %}">Request a Tool</a></li>

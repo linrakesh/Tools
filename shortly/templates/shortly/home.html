@@ -1,0 +1,9 @@
+{% extends 'basic.html' %}
+{% block title %} URL Shortner Python Tool {% endblock %}
+
+{% block content %}
+<h1>Short URLs</h1>
+{% for u in urls %}
+<p>Original {{u.original_url}} And short url {{u.short_url}}</p>
+{% endfor%}
+{% endblock content %}
