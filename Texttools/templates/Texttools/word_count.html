@@ -1,0 +1,29 @@
+{% extends 'basic.html' %}
+{% block title %} Word Count Tool {% endblock %}
+
+{% block content %}
+<h1>Word Count Text Tool </h1>
+<div class="tool">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="url">Your Custom Text Appear Here</label>
+        <textarea id="text" rows ="10" cols="180" name="text"  style="background-color: #fff;">Enter your text here 
+        </textarea> 
+        <input type="submit" name="submit" value ="Summerize Text Count">
+    </form>
+    <div class="output">
+        Total chars :{{summery.chars}}
+        Total words : {{summery.words}}
+        upper case chars : {{summery.upper}}
+        Lower case chars : {{summery.lower}}
+        Digits  : {{summery.digit}}
+    </div>
+    <h2>Simple Facts out Word Count</h2>
+    
+</div>
+<div class="extra-information">
+    <h3>What is Word Count</h3>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus ab exercitationem molestiae neque,
+        vero beatae voluptatum. Ipsum, aliquid! Quas illum adipisci, explicabo officiis velit incidunt eveniet dicta architecto! Vitae repudiandae reprehenderit odit. Exercitationem recusandae sed non rerum in fuga dolore!</p>
+</div>
+{% endblock content %}

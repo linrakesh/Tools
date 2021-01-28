@@ -25,8 +25,10 @@ urlpatterns = [
     path('', include('passwordtools.urls')),
     path('', include('binarytools.urls')),
     path('', include('qrgraph.urls')),
+    path('', include('Texttools.urls')),
     path('', include('shortly.urls')),
 ]
+   
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

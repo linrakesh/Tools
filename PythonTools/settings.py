@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'binarytools',
     'shortly',
     'blog',
+    'Texttools',
 
 ]
 
