@@ -1,0 +1,23 @@
+{% extends 'basic.html' %}
+{% block title %} URL Shortner Python Tool {% endblock %}
+
+{% block content %}
+<h1>Short URLs</h1>
+<div class="tool">
+    
+    <div class="error">
+        
+    </div>
+    <h2>10 Latest Shorted URLs</h2>
+    {% if urls %}
+        {% for u in urls %}
+            <p>Original <a href="{{u.original_url}}">{{u.original_url}}</a> And short url <a href="{{u.short_url}}" target="_blank">{{u.short_url}}</a></p>
+        {% endfor%}
+    {% endif %}
+</div>
+<div class="extra-information">
+    <h3>What is Short URL</h3>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus ab exercitationem molestiae neque,
+        vero beatae voluptatum. Ipsum, aliquid! Quas illum adipisci, explicabo officiis velit incidunt eveniet dicta architecto! Vitae repudiandae reprehenderit odit. Exercitationem recusandae sed non rerum in fuga dolore!</p>
+</div>
+{% endblock content %}

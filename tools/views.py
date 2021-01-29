@@ -1,13 +1,19 @@
 from django import forms
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django.core.files.storage import FileSystemStorage
+from PIL import Image
+from resizeimage import resizeimage
 
 
 # Create your views here.
 import csv
 import json
 import whois
+import os
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 def home(request):
     return render(request, 'tools/home.html')
@@ -136,22 +142,16 @@ def csv_xml(request):
         return render(request, 'tools/csv_to_xml.html')
 
 
-def handle_uploaded_file(f):
-    destination = open('c:/%s' % f.name, 'wb+')
-    for chunk in f.chunks():
-        destination.write(chunk)
-    destination.close()
-
-
 def resize_images(request):
     if request.method == 'POST':
-        files = request.FILES.getlist('images')
+        files = request.FILES['images']
         # print(files)
-        for f in files:
-            if f.size > 5*1024*1024:
-                raise forms.ValidationError("File is too big.")
+        fs = FileSystemStorage()
+        filename = fs.save(files.name,files)
+        uploaded_file_url = fs.url(filename)
+        
 
-        return render(request, "tools/resize_files.html", {'files': files})
+        return render(request, "tools/resize_files.html", {'uploaded_file_url': uploaded_file_url})
     else:
         return render(request, "tools/resize_files.html")
 

@@ -25,9 +25,11 @@ def shorturl_home(request):
                newurl = shorturl(original_url = url,short_url=url)
              
         newurl.save()
-      
-    urls = shorturl.objects.all()[:10]
-    return render(request, 'shortly/home.html', {'urls': urls})
+        urls = shorturl.objects.all().order_by('-id')[:10]
+        return render(request, 'shortly/short_names.html', {'urls': urls})
+    else:
+        urls = shorturl.objects.all().order_by('-id')[:10]
+        return render(request, 'shortly/home.html', {'urls': urls})
    
 
 def short_url_redirect(request,query):

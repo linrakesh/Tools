@@ -12,7 +12,5 @@
     <input type="file" name="images" id="images" multiple> <br />
     <input type="submit" value="Upload Files">
 </form>
-{% for photo in files %}
-    {{photo}}
-{% endfor %}
+<img class="responsive" src ="{{uploaded_file_url}}"  alt =""uploaded images/>
 {% endblock content %}
