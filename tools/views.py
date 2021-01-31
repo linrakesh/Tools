@@ -14,8 +14,6 @@ import requests
 import whois
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-
 
 def home(request):
     return render(request, 'tools/home.html')
@@ -180,11 +178,20 @@ def whatismyip(request):
 def domain_name_generator(request):
     if request.method=='POST':
         seed_word = request.POST['seed_word']
-        domain=['.com','.org','.net']
-        words =[]
-        for x in domain:
-            words.append(seed_word+x)
-        return render(request,'tools/domain_names.html',{'domains':words})
+        list1 =['today','cage','passion','flex','red','crazy','fox','red','king','queen','sword','quick','sprout']
+        start=False
+        words=[]
+        if start:
+            for word in list1:
+                words.append(seed_word+word+'.com')
+        else:
+            for word in list1:
+                words.append(word+seed_word+'.com')
+                ''' words.append(seed_word+seed_word+'.org')
+                words.append(word+seed_word+'.org')
+                words.append(word+seed_word+'.net')
+                words.append(seed_word+word+'.net') '''
+        return render(request,'tools/domain_names.html',{'domains':sorted(words,key=len)})
     else:
         return render(request, 'tools/domain_names.html')
    
