@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from django.core.files.storage import FileSystemStorage
 from PIL import Image
 from resizeimage import resizeimage
+from django.conf import settings
 
 
 # Create your views here.
@@ -13,7 +14,7 @@ import whois
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 def home(request):
     return render(request, 'tools/home.html')
@@ -143,12 +144,17 @@ def csv_xml(request):
 
 
 def resize_images(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.FILES['images']:
         files = request.FILES['images']
         # print(files)
         fs = FileSystemStorage()
         filename = fs.save(files.name,files)
         uploaded_file_url = fs.url(filename)
+        new_path = settings.MEDIA_ROOT +"\\"+ files.name
+        with open(new_path, 'r+b') as f:
+            with Image.open(f) as image:
+                cover = resizeimage.resize_cover(image, [200, 100])
+                cover.save(new_path, image.format)
         
 
         return render(request, "tools/resize_files.html", {'uploaded_file_url': uploaded_file_url})
