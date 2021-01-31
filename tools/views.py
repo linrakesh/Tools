@@ -177,7 +177,17 @@ def whatismyip(request):
     json_data = response.json()
     return render(request,'tools/myip.html',json_data )
 
-
+def domain_name_generator(request):
+    if request.method=='POST':
+        seed_word = request.POST['seed_word']
+        domain=['.com','.org','.net']
+        words =[]
+        for x in domain:
+            words.append(seed_word+x)
+        return render(request,'tools/domain_names.html',{'domains':words})
+    else:
+        return render(request, 'tools/domain_names.html')
+   
 
 def temp_converter(request):
     if request.method == 'POST':
