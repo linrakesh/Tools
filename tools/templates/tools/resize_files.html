@@ -9,8 +9,7 @@
     {% csrf_token %}
     <label for="images">Upload Image Files</label>
     <!-- <input type="file" name="myFile" onchange="this.form.submit();"> -->
-    <input type="file" name="images" id="images" multiple> <br />
-    <input type="submit" value="Upload Files">
+    <input type="file" name="images" id="images" onchange="this.form.submit();" multiple> <br />
+    <input type="submit" value="Upload Files" >
 </form>
-<img class="responsive" src ="{{uploaded_file_url}}"  alt =""uploaded images/>
 {% endblock content %}

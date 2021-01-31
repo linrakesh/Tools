@@ -10,6 +10,7 @@ from django.conf import settings
 # Create your views here.
 import csv
 import json
+import requests
 import whois
 import os
 
@@ -151,15 +152,31 @@ def resize_images(request):
         filename = fs.save(files.name,files)
         uploaded_file_url = fs.url(filename)
         new_path = settings.MEDIA_ROOT +"\\"+ files.name
-        with open(new_path, 'r+b') as f:
-            with Image.open(f) as image:
-                cover = resizeimage.resize_cover(image, [200, 100])
-                cover.save(new_path, image.format)
-        
-
-        return render(request, "tools/resize_files.html", {'uploaded_file_url': uploaded_file_url})
+        return render(request, "tools/resize_files_size.html", {'uploaded_file_url': uploaded_file_url,'new_path':new_path})
     else:
         return render(request, "tools/resize_files.html")
+
+def actual_resize_file(request):
+    if request.method=='POST':
+        new_path = request.POST['new_path']
+        image_path = request.POST['image_path']
+        width = int(request.POST['width'])
+        height = int(request.POST['height'])
+        print(width)
+        print(height)
+        with open(new_path, 'r+b') as f:
+            with Image.open(f) as image:
+                cover = resizeimage.resize_cover(image, [width, height])
+                cover.save(new_path, image.format)
+    return render(request,'tools/download.html',{'image_path':image_path})
+
+
+def whatismyip(request):
+    url = 'https://ipinfo.io/json'
+    response = requests.get(url)
+    json_data = response.json()
+    return render(request,'tools/myip.html',json_data )
+
 
 
 def temp_converter(request):

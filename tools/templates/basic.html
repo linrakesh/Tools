@@ -19,8 +19,16 @@
                 </div>
                 <div class="menu">
                     <ul>
-                        <li><a href="{% url 'home' %}">Home</a></li>
-                        <li><a href="{% url 'word_count' %}">Word Count</a></li>
+                        <li><a href="#">General Tools</a>
+                            <ul>
+                                <li><a href="{% url 'csv_to_json' %}">Temp Converter</a></li>
+                                <li><a href="{% url 'word_count' %}">Word Count</a></li>
+                                <li><a href="{% url 'password_generator' %}">Password Generator</a></li>
+                                <li><a href="{% url 'password_strength' %}">Password Strength</a></li>
+                            </ul>
+                        
+                        </li>
+                        
                         <li><a href="{% url 'short_home' %}">shortURL</a></li>
                         <li><a href="#">CSV Tools</a>
                             <ul>
@@ -42,23 +50,18 @@
                                 <li><a href="{% url 'binary_2_hexa' %}">Binary 2 HexaDecimal</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Password Tools</a>
-                            <ul>
-                                <li><a href="{% url 'password_generator' %}">Password Generator</a></li>
-                                <li><a href="{% url 'password_strength' %}">Password Strength</a></li>
-
-                            </ul>
-                        </li>
+                        
                         <li><a href="#">Domain Tools</a>
                             <ul>
                                 <li><a href="{% url 'domain_age' %}">Domain Age Checker</a></li>
                                 <li><a href="{% url 'whois' %}">Whois Checker</a></li>
+                                <li><a href="{% url 'myip' %}">my IP</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Image Tools</a>
                             <ul>
                                 <li><a href="{% url 'qrcode' %}">QR Code Generator</a></li>
-                                <li><a href="{% url 'resize_images' %}">Image Resize</a></li>
+                                <li><a href="{% url 'resize_image' %}">Image Resize</a></li>
                             </ul>
                         </li>
                         <!-- <li><a href="#">Unit Tools</a>
@@ -68,8 +71,12 @@
                         </li> -->
 
 
-                        <li><a href="{% url 'tool_request' %}">Request a Tool</a></li>
-                        <li><a href="{% url 'contact_us' %}">Contact us</a></li>
+                        <li><a href="{% url 'tool_request' %}">Request a Tool</a>
+                            <ul>
+                                <li><a href="{% url 'contact_us' %}">Contact us</a></li>
+                            </ul>
+                        </li>
+                        
                     </ul>
                 </div>
             </div>

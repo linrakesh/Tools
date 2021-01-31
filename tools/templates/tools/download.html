@@ -1,0 +1,11 @@
+{% extends 'basic.html' %}
+
+{% block title %} Resize Image Sizes using Python {% endblock %}
+
+{% block content %}
+<h1>Download Your resized Images</h1>
+<p>Upload your images using the file uploader window and click on upload files button. After uploading it will show you all the images.</p>
+<img class="responsive" src ="{{image_path}}"  alt =""uploaded images/>
+<a href="{{image_path}}" download>Download now</a>
+<a href="{% url 'resize_image' %}">Resize another Image</a>
+{% endblock content %}

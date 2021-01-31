@@ -1,0 +1,14 @@
+{% extends 'basic.html' %}
+
+{% block title %} What is my IP  {% endblock %}
+
+{% block content %}
+<h1>Your Current Public IP {{ip}}</h1>
+<h2>Your city :{{city}}</h2>
+<h2>Your Region :{{region}}</h2>
+<h2>Country :{{country}}</h2>
+<h2>Location :{{loc}}</h2>
+<h2>Service Provider:{{org}}</h2>
+<h2>Postal code:{{postal}}</h2>
+<h2>Time Zone: {{timezone}}</h2>
+{% endblock content %}
