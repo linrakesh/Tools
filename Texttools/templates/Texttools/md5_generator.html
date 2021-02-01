@@ -4,8 +4,12 @@
 <h1>MD5 Generator</h1>
 <form action="" method="post">
   {% csrf_token %}
-  <input type="text" name="plain_text" id="plain_text" value="{{seed_word}}" >
+  <textarea rows="10" cols="80" name="plain_text" id="plain_text">{{ text }}</textarea>
   <input type="submit" value="Generate MD5 Hash">
 </form>
-
+{% if md5 %}
+  <p>MD 5: {{md5}}</p>
+  <p>base 64: {{base64}}</p>
+  <p>sha384: {{sha384}}</p>
+{% endif %}
 {% endblock content %}
