@@ -1,4 +1,8 @@
+import base64
 from django.shortcuts import render
+
+import hashlib
+import base64
 
 # Create your views here.
 
@@ -38,3 +42,17 @@ def word_count(request):
     return render(request, 'Texttools/word_count.html',{'summery':result})
   else:
     return render(request, 'Texttools/word_count.html')
+
+
+def md5_generator(request):
+  if request.method =='POST':
+    text =  request.POST['plain_text']
+    md_result = hashlib.md5(text.encode())
+    base64_result = base64.b64encode(text.encode())
+    sha384_result = hashlib.sha384(text.encode())
+    print(md_result.hexdigest())
+    print(base64_result.hex())
+    print(sha384_result.hexdigest())
+    return render(request, 'Texttools/md5_generator.html', {'md5': md_result, 'base64': base64_result, 'sha384': sha384_result})
+  else:
+    return render(request,'Texttools/md5_generator.html' )
